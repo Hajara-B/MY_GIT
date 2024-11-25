@@ -9,11 +9,3 @@ for i in range(small,0,-1):
         gcd=i
         break
 print("the gcd of a and b is ",i)
-    
-    
-    
-    
-
-    
-      
-      
