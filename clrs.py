@@ -1,5 +1,0 @@
-color = input("enter a list of colors separated by commas: ")
-color_list = color.split()
-print(color_list)
-print("first color is ",color_list[0])
-print("last color is ",color_list[-1])
