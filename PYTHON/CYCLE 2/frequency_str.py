@@ -1,12 +1,10 @@
-s = input("Enter a string: ")
-freq = {}
-
-for char in s:
-    if char in freq:
-        freq[char] += 1
-    else:
-        freq[char] = 1
-
-print("Character frequency:")
-for char, count in freq.items():
-    print(f"{char}: {count}")
+def frequency():
+    word=input("enter your word: ")
+    letter=input("enter the letter: ")
+    new=len(word)
+    count=0
+    for i in range(new):
+        if word[i]==letter:
+           count+=1
+    print(f"the count of the letter {letter} is {count}")         
+frequency()    
