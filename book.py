@@ -21,9 +21,8 @@ class Python(Book):
         self.pages = pages
 
     def display_python_book(self):
-        return (f"{self.display_publisher()}\n"
-                f"{self.display_book()}\n"
-                f"Price: ${self.price}, Pages: {self.pages}")
+        return (f"{self.display_publisher()} , {self.display_book()} , Price: ${self.price} , Pages: {self.pages}")
+   
 
 book = Python(name="O'Reilly", title="Learning Python", author="Mark Lutz", price=39.99, pages=1104)
 print(book.display_python_book())
