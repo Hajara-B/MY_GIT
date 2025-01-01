@@ -1,34 +1,27 @@
 class Time:
-    def __init__(self, h, m, s):
-        self._hour = h
-        self._min = m
-        self._sec = s
-
-    def __add__(self, a):
-        c = Time(0, 0, 0)
-        c._hour = self._hour + a._hour
-        c._min = self._min + a._min
-        c._sec = self._sec + a._sec
+    def __init__(self, hour, minute, second):
+        self.__hour = hour
+        self.__minute = minute
+        self.__second = second
+    
+    def __add__(self, other):
+        s = self.__second + other.__second
+        m = self.__minute + other.__minute
+        h = (self.__hour + other.__hour) % 24
+        if s >= 60:
+            s %= 60
+            m += 1
+        if m >= 60:
+            m %= 60
+            h += 1
         
-        if c._sec >= 60:
-            c._sec -= 60
-            c._min += 1
-        
-        if c._min >= 60:
-            c._min -= 60
-            c._hour += 1
-        
-        return c
+        return Time(h, m, s)
 
-    def display(self):
-        print(f"Time: {self._hour:02}:{self._min:02}:{self._sec:02}")
+    def __str__(self):
+        return f"{self.__hour:02d}:{self.__minute:02d}:{self.__second:02d}"
+    
 
-x, y, z = map(int, input("Enter Time 1 in (hh:mm:ss): ").split(":"))
-a = Time(x, y, z)
-
-x, y, z = map(int, input("Enter Time 2 in (hh:mm:ss): ").split(":"))
-b = Time(x, y, z)
-
-result = a + b
-print("Time 1 + Time 2:")
-result.display()
+t1 = Time(12, 42, 37)
+t2 = Time(12, 22, 59)
+t = t1 + t2
+print(t)
